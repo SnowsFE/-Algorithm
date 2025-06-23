@@ -37,3 +37,17 @@ boj_4344([
   [3, 70, 90, 81],
   [9, 100, 99, 98, 97, 96, 95, 94, 93, 91],
 ]);
+
+// 백준 4344번: 평균은 넘겠지 - [간단한 - 브론즈 1]
+function boj_4344(cases) {
+  for (const scores of cases) {
+    const [n, ...arr] = scores;
+    const sum = arr.reduce((a, b) => a + b, 0);
+    const avg = sum / n;
+
+    const aboveAvgCount = arr.filter((score) => score > avg).length;
+    const ratio = (aboveAvgCount / n) * 100;
+
+    console.log(`${ratio.toFixed(3)}%`);
+  }
+}
