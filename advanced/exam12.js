@@ -2,14 +2,24 @@
 // 반환값: [{ name: "이영희", discountRate: "15%" }, { name: "박민준", discountRate: "10%" },]
 
 function exam12(user_info) {
-  user_info.filter((item) => {
-    if (
-      (item.membership === "gold" || item.membership === "vip") &&
-      item.age >= 30 &&
-      item.totalPurchase >= 100000
-    ) {
-    }
-  });
+  const membership = {
+    vip: "15%",
+    gold: "10%",
+  };
+
+  return console.table(
+    user_info
+      .filter(
+        (item) =>
+          (item.membership === "vip" || item.membership === "gold") &&
+          item.age >= 30 &&
+          item.totalPurchase >= 100000
+      )
+      .map((item) => ({
+        name: item.name,
+        discountRate: membership[item.membership],
+      }))
+  );
 }
 
 exam12([
