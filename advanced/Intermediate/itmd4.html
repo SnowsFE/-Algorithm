@@ -1,0 +1,23 @@
+<ul id="menu">
+  <li>Home</li>
+  <li>About</li>
+  <li>Services</li>
+  <li>Contact</li>
+</ul>
+
+<style>
+  .highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }
+</style>
+
+<script>
+  const liList = document.querySelectorAll("#menu li");
+
+  liList.forEach((li) => {
+    li.addEventListener("click", () => {
+      li.classList.toggle("highlight");
+    });
+  });
+</script>
